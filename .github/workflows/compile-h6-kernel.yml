@@ -2,7 +2,7 @@
 # Description: Compile h6 kernel
 # Copyright (C) 2023 https://github.com/13584452567/linux-6.1.y
 # Copyright (C) 2023 https://github.com/unifreq/linux-6.1.y
-# Copyright (C) 2023 https://github.com/ophub/kernel
+# Copyright (C) 2023 https://github.com/jerbe/armbian_kernel
 #==========================================================================
 
 name: Compile h6 kernel

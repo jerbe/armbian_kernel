@@ -1,7 +1,7 @@
 #==========================================================================
 # Description: Compile stable kernel
-# Copyright (C) 2021 https://github.com/unifreq/openwrt_packit
-# Copyright (C) 2021 https://github.com/ophub/kernel
+# Copyright (C) 2021~ https://github.com/unifreq/openwrt_packit
+# Copyright (C) 2023~ https://github.com/jerbe/armbian_kernel
 #==========================================================================
 
 name: Compile stable kernel
