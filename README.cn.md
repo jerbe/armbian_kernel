@@ -2,7 +2,7 @@
 
 查看英文说明 | [View English description](README.md)
 
-这些内核可用于 `Armbian` 和 `OpenWrt` 系统。例如 [amlogic-s9xxx-armbian](https://github.com/ophub/amlogic-s9xxx-armbian), [amlogic-s9xxx-openwrt](https://github.com/ophub/amlogic-s9xxx-openwrt), [flippy-openwrt-actions](https://github.com/ophub/flippy-openwrt-actions) 和 [unifreq/openwrt_packit](https://github.com/unifreq/openwrt_packit) 等项目。可以在编译固件时集成，也可以安装到已有的系统中使用。具体使用方法详见[内核使用说明](https://github.com/ophub/amlogic-s9xxx-armbian/blob/main/compile-kernel/README.cn.md#内核使用说明)。
+这些内核可用于 `Armbian` 和 `OpenWrt` 系统。例如 [armbian_amlogic-s9xxx](https://github.com/jerbe/armbian_amlogic-s9xxx), [openwrt_amlogic-s9xxx](https://github.com/jerbe/openwrt_amlogic-s9xxx), [openwrt_packit-flippy](https://github.com/jerbe/openwrt_packit-flippy) 和 [unifreq/openwrt_packit](https://github.com/unifreq/openwrt_packit) 等项目。可以在编译固件时集成，也可以安装到已有的系统中使用。具体使用方法详见[内核使用说明](https://github.com/jerbe/armbian_amlogic-s9xxx/blob/main/compile-kernel/README.cn.md#内核使用说明)。
 
 - 在 Releases 的 [kernel_stable](https://github.com/jerbe/armbian_kernel/releases/tag/kernel_stable) 里的内核文件是`稳定版`，适合在正式生产环境中使用。
 - 在 Releases 的 [kernel_rk3588](https://github.com/jerbe/armbian_kernel/releases/tag/kernel_rk3588) 里的内核文件是 `rk3588` 系列的`专用版本`，适合 Rock-5B 和 HinLink-H88K 等设备，和其他系列不通用。
@@ -13,14 +13,14 @@
 
 ## 编译内核
 
-- 编译内核的方法详见 [compile-kernel](https://github.com/ophub/amlogic-s9xxx-armbian/tree/main/compile-kernel), 使用 github.com 的 Actions 编译内核的方法可参考 [.github/workflows](.github/workflows)，可以通过修改 [kernel-config](kernel-config) 里的内核配置文件进行自定义内核。
+- 编译内核的方法详见 [compile-kernel](https://github.com/jerbe/armbian_amlogic-s9xxx/tree/main/compile-kernel), 使用 github.com 的 Actions 编译内核的方法可参考 [.github/workflows](.github/workflows)，可以通过修改 [kernel-config](kernel-config) 里的内核配置文件进行自定义内核。
 
 - 你可以根据需要对内核的配置进行调整，如添加驱动和补丁。也可以根据心情编译具有特殊意义的个性化签名内核，如 `5.10.95-happy-new-year`, `5.10.96-beijing-winter-olympics`, `5.10.99-valentines-day` 等等。
 
 
 ```yaml
 - name: Compile the kernel
-  uses: ophub/amlogic-s9xxx-armbian@main
+  uses: jerbe/armbian_amlogic-s9xxx@main
   with:
     build_target: kernel
     kernel_version: 5.10.135_5.15.50
