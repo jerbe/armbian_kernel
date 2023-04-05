@@ -1,5 +1,11 @@
 # 内核说明
 
+ ===========================================================================
+
+ **注意：这个仓库是从 [`ophub/kernel`](https://github.com/ophub/kernel) 派生而来的，内容已经过定制和修改，请使用官方仓库**
+
+ ===========================================================================
+
 查看英文说明 | [View English description](README.md)
 
 这些内核可用于 `Armbian` 和 `OpenWrt` 系统。例如 [armbian_amlogic-s9xxx](https://github.com/jerbe/armbian_amlogic-s9xxx), [openwrt_amlogic-s9xxx](https://github.com/jerbe/openwrt_amlogic-s9xxx), [openwrt_packit-flippy](https://github.com/jerbe/openwrt_packit-flippy) 和 [unifreq/openwrt_packit](https://github.com/unifreq/openwrt_packit) 等项目。可以在编译固件时集成，也可以安装到已有的系统中使用。具体使用方法详见[内核使用说明](https://github.com/jerbe/armbian_amlogic-s9xxx/blob/main/compile-kernel/README.cn.md#内核使用说明)。

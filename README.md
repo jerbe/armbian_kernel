@@ -1,5 +1,11 @@
 # Kernel Description
 
+ ===========================================================================
+ 
+ **NOTE: This repository is forked from [`ophub/kernel`](https://github.com/ophub/kernel), the content has been customized and modified, please use the official repository**
+
+ ===========================================================================
+
 View Chinese description  |  [查看中文说明](README.cn.md)
 
 This kernel can be used in `Armbian` and `OpenWrt` systems. For example [armbian_amlogic-s9xxx](https://github.com/jerbe/armbian_amlogic-s9xxx), [openwrt_amlogic-s9xxx](https://github.com/jerbe/openwrt_amlogic-s9xxx), [openwrt_packit-flippy](https://github.com/jerbe/openwrt_packit-flippy) and [unifreq/openwrt_packit](https://github.com/unifreq/openwrt_packit). It can be integrated when compiling firmware, or it can be installed into an existing system for use. For specific usage, please refer to [Kernel usage Instructions](https://github.com/jerbe/armbian_amlogic-s9xxx/blob/main/compile-kernel/README.md#kernel-usage-instructions).
