@@ -81,6 +81,13 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
+          kernel_version=${{inputs.kernel_version}}
+          kernel_version_input=${{inputs.kernel_version_input}}
+          kernel_auto=${{inputs.kernel_auto}}
+          [[ -n "$kernel_version_input" ]] && kernel_version = $kernel_version_input && kernel_auto="false"
+
+          echo "kernel_version=${kernel_version},kernel_auto=${kernel_auto}"
+
           docker rmi `docker images -q`
           [[ -n "${AGENT_TOOLSDIRECTORY}" ]] && sudo rm -rf "${AGENT_TOOLSDIRECTORY}"
           sudo rm -rf /usr/share/dotnet /etc/apt/sources.list.d /usr/local/lib/android 2>/dev/null
@@ -92,15 +99,12 @@ jobs:
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
           sudo timedatectl set-timezone "${TZ}"
+
+
+
+
+          
           echo "status=success" >> ${GITHUB_OUTPUT}
-
-          kernel_version=${{inputs.kernel_version}}
-          kernel_version_input=${{inputs.kernel_version_input}}
-          kernel_auto=${{inputs.kernel_auto}}
-          [ -n "$kernel_version_input" ]] && kernel_version = $kernel_version_input && kernel_auto=""
-
-          echo "kernel_version=${kernel_version},kernel_auto=${kernel_auto}"
-
           echo "kernel_version=${kernel_version}" >> ${GITHUB_OUTPUT}
           echo "kernel_auto=${kernel_auto}" >> ${GITHUB_OUTPUT}
 
