@@ -86,10 +86,7 @@ jobs:
           kernel_version_input=${{ inputs.kernel_version_input }}
           kernel_auto=${{ inputs.kernel_auto }}
 
-          if [ -n "${kernel_version_input}" ];then
-            kernel_version = ${kernel_version_input}
-            kernel_auto=false
-          fi
+          [[ -n "${kernel_version_input}" ]] && kernel_version=${kernel_version_input} && kernel_auto=false
 
           echo "kernel_version=${kernel_version},kernel_auto=${kernel_auto}"
 
