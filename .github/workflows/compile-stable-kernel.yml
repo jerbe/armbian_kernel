@@ -34,6 +34,11 @@ on:
         required: false
         default: true
         type: boolean
+      kernel_version_input:
+        description: "Input custom kernel version,if set it, the kernel_version and kernel_auto well be unset"
+        required: false
+        default: ""
+
       kernel_package:
         description: "Select compile package list"
         required: false
@@ -89,14 +94,25 @@ jobs:
           sudo timedatectl set-timezone "${TZ}"
           echo "status=success" >> ${GITHUB_OUTPUT}
 
+          kernel_version=${{inputs.kernel_version}}
+          kernel_version_input=${{inputs.kernel_version_input}}
+          kernel_auto=${{inputs.kernel_auto}}
+          [ -n "$kernel_version_input" ]] && kernel_version = $kernel_version_input && kernel_auto=""
+
+          echo "kernel_version=${kernel_version},kernel_auto=${kernel_auto}"
+
+          echo "kernel_version=${kernel_version}" >> ${GITHUB_OUTPUT}
+          echo "kernel_auto=${kernel_auto}" >> ${GITHUB_OUTPUT}
+
+
       - name: Compile the kernel
         uses: jerbe/armbian_amlogic-s9xxx@main
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: kernel
           kernel_source: ${{ inputs.kernel_source }}
-          kernel_version: ${{ inputs.kernel_version }}
-          kernel_auto: ${{ inputs.kernel_auto }}
+          kernel_version: ${{ steps.init.outputs.kernel_version }}
+          kernel_auto: ${{ steps.init.outputs.kernel_auto }}
           kernel_package: ${{ inputs.kernel_package }}
           kernel_toolchain: ${{ inputs.kernel_toolchain }}
           kernel_sign: ${{ inputs.kernel_sign }}
