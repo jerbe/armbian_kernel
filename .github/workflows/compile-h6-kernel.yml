@@ -106,6 +106,7 @@ jobs:
           name: kernel_h6
           artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
           allowUpdates: true
+          token: ${{ secrets.GH_TOKEN }}
           body: |
             The kernel can be used to compile Armbian and OpenWrt.
             The kernel source code comes from: ${{ inputs.kernel_source }}
