@@ -35,7 +35,7 @@ on:
         default: true
         type: boolean
       kernel_version_input:
-        description: "Input custom kernel version,if set it, the kernel_version and kernel_auto well be unset"
+        description: "Input custom kernel version"
         required: false
         default: ""
 
@@ -81,10 +81,11 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
+
           kernel_version=${{inputs.kernel_version}}
           kernel_version_input=${{inputs.kernel_version_input}}
           kernel_auto=${{inputs.kernel_auto}}
-          [[ -n "$kernel_version_input" ]] && kernel_version = $kernel_version_input && kernel_auto="false"
+          [[ -n "${kernel_version_input}" ]] && kernel_version = ${kernel_version_input} && kernel_auto="false"
 
           echo "kernel_version=${kernel_version},kernel_auto=${kernel_auto}"
 
@@ -103,7 +104,7 @@ jobs:
 
 
 
-          
+
           echo "status=success" >> ${GITHUB_OUTPUT}
           echo "kernel_version=${kernel_version}" >> ${GITHUB_OUTPUT}
           echo "kernel_auto=${kernel_auto}" >> ${GITHUB_OUTPUT}
